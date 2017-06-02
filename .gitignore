@@ -1,0 +1,9 @@
+.idea/
+
+data-persistence/.gradle/
+data-persistence/gradle/
+data-persistence/build/
+
+restful-service/.gradle/
+restful-service/gradle/
+restful-service/build/
