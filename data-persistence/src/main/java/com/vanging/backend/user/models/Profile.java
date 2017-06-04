@@ -2,20 +2,22 @@ package com.vanging.backend.user.models;
 
 public class Profile
 {
+    // set when register
     private long uid;
-    private String username;
-    private String nickname;
     private String email;
-    private String phone;
-    private boolean email_verified;
-    private boolean phone_verified;
+    private boolean verified;
 
-    public String getUsername() {
-        return username;
+    // set after register
+
+    private String nickname;
+    private String phone;
+
+    public boolean isVerified() {
+        return verified;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setVerified(boolean verified) {
+        this.verified = verified;
     }
 
     public String getNickname() {

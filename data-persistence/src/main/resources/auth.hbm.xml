@@ -6,6 +6,8 @@
         <id name="uid" column="uid" type="long">
             <generator class="native" />
         </id>
+        <one-to-one name="uid" class="com.vanging.backend.user.models.Profile" constrained="true" />
         <property name="password" column="password" type="java.lang.String" not-null="true" />
+        <property name="username" column="username" not-null="false" type="java.lang.String" />
     </class>
 </hibernate-mapping>

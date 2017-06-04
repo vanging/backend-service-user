@@ -6,5 +6,12 @@
         <id column="uid" name="uid" type="long">
             <generator class="foreign" />
         </id>
+        <one-to-one name="uid" class="com.vanging.backend.user.models.Auth" constrained="true"/>
+
+        <property name="email" column="email" not-null="true" type="java.lang.String" />
+        <property name="verified" column="verified" not-null="true" type="boolean" />
+
+        <property name="nickname" column="nickname" not-null="false" type="java.lang.String" />
+        <property name="phone" column="phone" not-null="false" type="java.lang.String" />
     </class>
 </hibernate-mapping>
