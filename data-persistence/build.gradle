@@ -14,5 +14,5 @@ repositories {
 dependencies {
     compile ('org.hibernate:hibernate-core:5.2.10.Final')
     compile ('mysql:mysql-connector-java:5.1.40')
-    compile ('junit:junit:4.12')
+    testCompile ('junit:junit:4.12')
 }
