@@ -14,7 +14,6 @@ import org.hibernate.service.ServiceRegistry;
 
 class Persistence
 {
-    private static boolean configured = false;
     private static SessionFactory sessionFactory = null;
     private static Configuration configuration = null;
     private static StandardServiceRegistry standardServiceRegistry = null;
@@ -43,19 +42,15 @@ class Persistence
             StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
             throw new RuntimeException(e);
         }
-
-        configured = true;
     }
 
-    @Nullable
     static SessionFactory getSessionFactory()
     {
-        return configured ? sessionFactory : null;
+        return sessionFactory;
     }
 
-    @Nullable
     static Session getSession()
     {
-        return configured ? sessionFactory.openSession() : null;
+        return sessionFactory.openSession();
     }
 }

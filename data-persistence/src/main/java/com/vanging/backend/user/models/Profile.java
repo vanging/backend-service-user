@@ -2,15 +2,15 @@ package com.vanging.backend.user.models;
 
 public class Profile
 {
+
     // set when register
     private long uid;
     private String email;
     private boolean verified;
 
     // set after register
-
     private String nickname;
-    private String phone;
+    private String tel;
 
     public boolean isVerified() {
         return verified;
@@ -28,12 +28,12 @@ public class Profile
         this.nickname = nickname;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTel() {
+        return tel;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTel(String phone) {
+        this.tel = phone;
     }
 
     public long getUid()

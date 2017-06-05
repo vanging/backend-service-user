@@ -4,10 +4,11 @@
 <hibernate-mapping package="com.vanging.backend.user">
     <class name="com.vanging.backend.user.models.Auth" table="auth">
         <id name="uid" column="uid" type="long">
-            <generator class="native" />
+            <generator class="native">
+            </generator>
         </id>
-        <one-to-one name="uid" class="com.vanging.backend.user.models.Profile" constrained="true" />
-        <property name="password" column="password" type="java.lang.String" not-null="true" />
-        <property name="username" column="username" not-null="false" type="java.lang.String" />
+
+        <property name="username" column="username" not-null="false" unique="true" type="java.lang.String" />
+        <property name="password" column="password" not-null="true" type="java.lang.String" />
     </class>
 </hibernate-mapping>

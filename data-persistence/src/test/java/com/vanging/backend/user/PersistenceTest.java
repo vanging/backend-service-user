@@ -1,21 +1,19 @@
 package com.vanging.backend.user;
 
 import com.vanging.backend.user.models.Auth;
+import com.vanging.backend.user.models.Profile;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 public class PersistenceTest
 {
     private static SessionFactory sessionFactory;
     private static Session session;
 
-    @BeforeClass
-    public static void init()
+    @Before
+    public static void setUp() throws Exception
     {
         Persistence.config("hibernate.test.cfg.xml");
         sessionFactory = Persistence.getSessionFactory();
@@ -23,24 +21,14 @@ public class PersistenceTest
     }
 
     @Test
-    public void testHibernate()
+    public void testHibernate() throws Exception
     {
         Assert.assertNotNull(sessionFactory);
         Assert.assertNotNull(session);
-
-        Transaction transaction = session.getTransaction();
-        transaction.begin();
-
-        Auth auth = new Auth();
-        auth.setUid(0);
-        auth.setPassword("密码");
-        session.save(auth);
-
-        transaction.commit();
     }
 
-    @AfterClass
-    public static void clean()
+    @After
+    public void tearDown() throws Exception
     {
         session.clear();
         sessionFactory.close();

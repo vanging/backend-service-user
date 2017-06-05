@@ -3,15 +3,15 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.vanging.backend.user">
     <class name="com.vanging.backend.user.models.Profile" table="profile">
-        <id column="uid" name="uid" type="long">
-            <generator class="foreign" />
+        <id name="uid" column="uid" type="long">
+            <generator class="assigned">
+            </generator>
         </id>
-        <one-to-one name="uid" class="com.vanging.backend.user.models.Auth" constrained="true"/>
 
-        <property name="email" column="email" not-null="true" type="java.lang.String" />
+        <property name="email" column="email" not-null="false"  unique="true" type="java.lang.String" />
         <property name="verified" column="verified" not-null="true" type="boolean" />
 
-        <property name="nickname" column="nickname" not-null="false" type="java.lang.String" />
-        <property name="phone" column="phone" not-null="false" type="java.lang.String" />
+        <property name="nickname" column="nickname" not-null="false"  unique="true" type="java.lang.String" />
+        <property name="tel" column="tel" not-null="false"  unique="true" type="java.lang.String" />
     </class>
 </hibernate-mapping>
