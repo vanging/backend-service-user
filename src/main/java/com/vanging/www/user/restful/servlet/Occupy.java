@@ -1,4 +1,4 @@
-package com.vanging.backend.user;
+package com.vanging.www.user.restful.servlet;
 
 import com.vanging.backend.user.models.Auth;
 import com.vanging.backend.user.models.Profile;

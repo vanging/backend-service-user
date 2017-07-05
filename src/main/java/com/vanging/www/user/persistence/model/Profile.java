@@ -1,4 +1,4 @@
-package com.vanging.www.user.persistence.models;
+package com.vanging.www.user.persistence.model;
 
 public class Profile
 {
