@@ -1,8 +1,8 @@
-group 'com.vanging.backend.user'
+group 'com.vanging.www'
 version '1.0'
 
 apply plugin: 'java'
-
+apply plugin: 'war'
 apply plugin: 'idea'
 
 sourceCompatibility = 1.8
@@ -12,7 +12,8 @@ repositories {
 }
 
 dependencies {
-    compile ('org.hibernate:hibernate-core:5.2.10.Final')
+    compile ('com.alibaba:fastjson:1.2.32')
+    compile ('org.mybatis:mybatis:3.4.4')
     compile ('mysql:mysql-connector-java:5.1.40')
     testCompile ('junit:junit:4.12')
 }

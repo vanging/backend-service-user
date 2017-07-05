@@ -1,9 +1,4 @@
-package com.vanging.backend.user;
-
-import com.vanging.backend.user.models.Auth;
-import com.vanging.backend.user.models.Profile;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+package com.vanging.www.user;
 
 public class Account
 {
