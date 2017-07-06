@@ -2,22 +2,24 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.vanging.www.yoyo.persistence.mappers.ClassMapper">
+<mapper namespace="com.vanging.www.user.persistence.mapper.ProfileMapper">
     <!--<select id="findById" resultType="com.vanging.www.yoyo.persistence.models.Class" parameterType="String">-->
         <!--select * from class where class_id = #{class_id}-->
     <!--</select>-->
 
-    <insert id="register" parameterType="com.vanging.www.user.persistence.model.Profile">
+    <insert id="register" parameterType="com.vanging.www.user.persistence.entity.Profile">
         <selectKey keyProperty="uid" resultType="String" order="BEFORE">
             select uuid() from dual;
         </selectKey>
-        insert into profile
-        (uid, email, email_verified,created_at, updated_at)
+        begin
+        insert into `profile`
+        (`uid`, `email`, `email_verified`,`created_at`, `updated_at`)
         values
         (#{uid}, #{email}, false, now(), now());
-        insert into auth
-        (uid, password)
+        insert into `auth`
+        (`uid`, `password`)
         values
-        (#{uid}, password);
+        (#{uid}, #{password})
+        end
     </insert>
 </mapper>

@@ -1,4 +1,4 @@
-package com.vanging.www.user.persistence.model;
+package com.vanging.www.user.persistence.entity;
 
 public class Auth
 {

@@ -21,6 +21,7 @@ public class Persistence
     {
         try
         {
+            org.apache.ibatis.logging.LogFactory.useLog4JLogging();
             developmentConfig();
         }
         catch(Exception e)
@@ -42,6 +43,6 @@ public class Persistence
 
     public static SqlSession getSqlSession()
     {
-        return sqlSessionFactory.openSession();
+        return sqlSessionFactory.openSession(true);
     }
 }

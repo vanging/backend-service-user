@@ -1,4 +1,4 @@
-package com.vanging.www.user.persistence.model;
+package com.vanging.www.user.persistence.entity;
 
 import java.util.Date;
 
@@ -6,9 +6,9 @@ public class Profile
 {
 
     // set when register
-    private long uid;
+    private String uid;
     private String email;
-    private boolean verified;
+    private boolean email_verified;
 
     // set after register
     private String nickname;
@@ -20,12 +20,12 @@ public class Profile
     private Date deleted_at;
     private Date updated_at;
 
-    public boolean isVerified() {
-        return verified;
+    public boolean isEmail_verified() {
+        return email_verified;
     }
 
-    public void setVerified(boolean verified) {
-        this.verified = verified;
+    public void setEmail_verified(boolean email_verified) {
+        this.email_verified = email_verified;
     }
 
     public String getNickname() {
@@ -44,12 +44,12 @@ public class Profile
         this.tel = phone;
     }
 
-    public long getUid()
+    public String getUid()
     {
         return uid;
     }
 
-    public void setUid(long uid)
+    public void setUid(String uid)
     {
         this.uid = uid;
     }
