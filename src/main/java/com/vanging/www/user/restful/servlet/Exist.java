@@ -9,6 +9,6 @@ public class Exist
 //
 //    static boolean email(String email)
 //    {
-//        return check("Profile", "email", email);
+//        return check("ProfileMapper", "email", email);
 //    }
 }
