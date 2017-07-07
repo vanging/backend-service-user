@@ -7,19 +7,13 @@
         <!--select * from class where class_id = #{class_id}-->
     <!--</select>-->
 
-    <insert id="register" parameterType="com.vanging.www.user.persistence.entity.Profile">
+    <insert id="addNewProfileFromEmail" parameterType="com.vanging.www.user.persistence.entity.Profile">
         <selectKey keyProperty="uid" resultType="String" order="BEFORE">
             select uuid() from dual;
         </selectKey>
-        begin
         insert into `profile`
         (`uid`, `email`, `email_verified`,`created_at`, `updated_at`)
         values
         (#{uid}, #{email}, false, now(), now());
-        insert into `auth`
-        (`uid`, `password`)
-        values
-        (#{uid}, #{password})
-        end
     </insert>
 </mapper>

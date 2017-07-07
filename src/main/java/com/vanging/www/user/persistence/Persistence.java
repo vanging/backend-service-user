@@ -43,6 +43,6 @@ public class Persistence
 
     public static SqlSession getSqlSession()
     {
-        return sqlSessionFactory.openSession(true);
+        return sqlSessionFactory.openSession();
     }
 }

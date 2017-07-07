@@ -26,8 +26,8 @@ public class MapperTest {
     {
         ProfileMapper profileMapper = Mapper.profile();
         Profile profile = new Profile();
-        profile.setEmail("email1");
-        profileMapper.register(profile);
+        profile.setEmail("email3");
+        profileMapper.addNewProfileFromEmail(profile);
     }
 
 }
