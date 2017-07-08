@@ -1,6 +1,7 @@
 package com.vanging.www.user.persistence;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,5 +22,8 @@ public class ActionTest {
     public void registerByEmail() throws Exception
     {
         Boolean result = Action.registerByEmail("email4", "password4");
+        Assert.assertTrue(result);
+        result = Action.registerByEmail("email4", "password4");
+        Assert.assertFalse(result);
     }
 }
