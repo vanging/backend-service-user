@@ -8,6 +8,10 @@
     <!--</select>-->
 
     <insert id="addAuth" parameterType="com.vanging.www.user.persistence.entity.Auth">
-        insert into `auth` (`uid`, `password`) values (#{uid}, #{password});
+        insert into `auth` (`uid`, `password`, `created_at`) values (#{uid}, #{password}, now());
     </insert>
+
+    <select id="getPasswordFromUid" resultType="java.lang.String" parameterType="String">
+        select `password` from `auth` where `uid` = #{uid} and `deleted_at` is null;
+    </select>
 </mapper>

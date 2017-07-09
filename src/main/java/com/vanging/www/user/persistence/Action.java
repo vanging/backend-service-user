@@ -1,5 +1,6 @@
 package com.vanging.www.user.persistence;
 
+import com.vanging.www.user.cache.Action.LoginSession;
 import com.vanging.www.user.persistence.entity.Auth;
 import com.vanging.www.user.persistence.entity.Profile;
 import com.vanging.www.user.persistence.mapper.AuthMapper;
@@ -38,20 +39,48 @@ public class Action
 
     static boolean isEmailExist(String email)
     {
-        ProfileMapper profileMapper = Mapper.getProfileMapper();
+        SqlSession sqlSession = Persistence.getSqlSession();
+        ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
+
         String emailResult = profileMapper.getUidFromEmail(email);
+
+        sqlSession.close();
         return emailResult != null;
     }
 
-    static String login(String account, String password)
+    static boolean isUsernameExist(String username)
     {
-        ProfileMapper profileMapper = Mapper.getProfileMapper();
+        SqlSession sqlSession = Persistence.getSqlSession();
+        ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
+
+        String usernameResult = profileMapper.getUidFromUsername(username);
+
+        sqlSession.close();
+        return usernameResult != null;
+    }
+
+    public static String login(String account, String password)
+    {
+        SqlSession sqlSession = Persistence.getSqlSession();
+        ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
+        AuthMapper authMapper = sqlSession.getMapper(AuthMapper.class);
 
         String uid = profileMapper.getUidFromEmail(account);
         if(uid == null)
         {
-
+            uid = profileMapper.getUidFromUsername(account);
+            if(uid == null)
+            {
+                return "account_not_exist";
+            }
         }
-        return "";
+        if(authMapper.getPasswordFromUid(uid).equals(password))
+        {
+            return LoginSession.getSessionFromUid(uid);
+        }
+        else
+        {
+            return "password_not_match";
+        }
     }
 }

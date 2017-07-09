@@ -12,12 +12,15 @@
             select uuid() from dual;
         </selectKey>
         insert into `profile`
-        (`uid`, `email`, `email_verified`,`created_at`, `updated_at`)
+        (`uid`, `email`, `email_verified`,`created_at`)
         values
-        (#{uid}, #{email}, false, now(), now());
+        (#{uid}, #{email}, false, now());
     </insert>
 
     <select id="getUidFromEmail" parameterType="String" resultType="java.lang.String">
-        select `uid` from `profile` where `email` = #{email};
+        select `uid` from `profile` where `email` = #{email} and `deleted_at` is null;
+    </select>
+    <select id="getUidFromUsername" parameterType="String" resultType="java.lang.String">
+        select `uid` from `profile` where `username` = #{username} and `deleted_at` is null;
     </select>
 </mapper>

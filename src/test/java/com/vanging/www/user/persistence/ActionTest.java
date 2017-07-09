@@ -28,11 +28,24 @@ public class ActionTest {
     }
 
     @Test
-    public void emailExist() throws Exception
+    public void isEmailExist() throws Exception
     {
         Assert.assertFalse(Action.isEmailExist("email"));
         Assert.assertFalse(Action.isEmailExist("email2"));
         Assert.assertFalse(Action.isEmailExist("email3"));
         Assert.assertTrue(Action.isEmailExist("email4"));
+    }
+
+    @Test
+    public void login() throws Exception
+    {
+        Assert.assertEquals(Action.login("account_not_exist", "password"), "account_not_exist");
+        Assert.assertEquals(Action.login("email", "password_wrong"), "password_not_match");
+    }
+
+    @Test
+    public void isUsernameExist() throws Exception
+    {
+        Assert.assertFalse(Action.isUsernameExist(""));
     }
 }
