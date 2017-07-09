@@ -35,4 +35,23 @@ public class Action
             return false;
         }
     }
+
+    static boolean isEmailExist(String email)
+    {
+        ProfileMapper profileMapper = Mapper.getProfileMapper();
+        String emailResult = profileMapper.getUidFromEmail(email);
+        return emailResult != null;
+    }
+
+    static String login(String account, String password)
+    {
+        ProfileMapper profileMapper = Mapper.getProfileMapper();
+
+        String uid = profileMapper.getUidFromEmail(account);
+        if(uid == null)
+        {
+
+        }
+        return "";
+    }
 }

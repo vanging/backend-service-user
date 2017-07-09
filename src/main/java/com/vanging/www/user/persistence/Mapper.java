@@ -6,13 +6,13 @@ import org.apache.ibatis.session.SqlSession;
 
 public class Mapper
 {
-    public static ProfileMapper profile()
+    public static ProfileMapper getProfileMapper()
     {
         SqlSession sqlSession = Persistence.getSqlSession();
         return sqlSession.getMapper(ProfileMapper.class);
     }
 
-    public static AuthMapper auth()
+    public static AuthMapper getAuthMapper()
     {
         SqlSession sqlSession = Persistence.getSqlSession();
         return sqlSession.getMapper(AuthMapper.class);

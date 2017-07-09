@@ -16,4 +16,8 @@
         values
         (#{uid}, #{email}, false, now(), now());
     </insert>
+
+    <select id="getUidFromEmail" parameterType="String" resultType="java.lang.String">
+        select `uid` from `profile` where `email` = #{email};
+    </select>
 </mapper>

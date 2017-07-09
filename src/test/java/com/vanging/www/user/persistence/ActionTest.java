@@ -26,4 +26,13 @@ public class ActionTest {
         result = Action.registerByEmail("email4", "password4");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void emailExist() throws Exception
+    {
+        Assert.assertFalse(Action.isEmailExist("email"));
+        Assert.assertFalse(Action.isEmailExist("email2"));
+        Assert.assertFalse(Action.isEmailExist("email3"));
+        Assert.assertTrue(Action.isEmailExist("email4"));
+    }
 }
