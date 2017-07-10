@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 
 public class Action
 {
-    static boolean registerByEmail(String email, String password)
+    public static boolean registerByEmail(String email, String password)
     {
         SqlSession sqlSession = Persistence.getSqlSession();
         ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
@@ -37,7 +37,7 @@ public class Action
         }
     }
 
-    static boolean isEmailExist(String email)
+    public static boolean isEmailExist(String email)
     {
         SqlSession sqlSession = Persistence.getSqlSession();
         ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
@@ -48,7 +48,7 @@ public class Action
         return emailResult != null;
     }
 
-    static boolean isUsernameExist(String username)
+    public static boolean isUsernameExist(String username)
     {
         SqlSession sqlSession = Persistence.getSqlSession();
         ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
