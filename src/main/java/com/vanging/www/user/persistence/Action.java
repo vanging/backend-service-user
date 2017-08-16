@@ -74,6 +74,11 @@ public class Action
                 return "account_not_exist";
             }
         }
+        String realPassword = authMapper.getPasswordFromUid(uid);
+        if(realPassword == null)
+        {
+            return "null_password";
+        }
         if(authMapper.getPasswordFromUid(uid).equals(password))
         {
             return LoginSession.getSessionFromUid(uid);
