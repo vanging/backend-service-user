@@ -68,5 +68,12 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>getProfileFromSession</servlet-name>
+        <servlet-class>com.vanging.www.user.restful.servlet.GetProfileFromSession</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getProfileFromSession</servlet-name>
+        <url-pattern>/getProfileFromSession</url-pattern>
+    </servlet-mapping>
 </web-app>

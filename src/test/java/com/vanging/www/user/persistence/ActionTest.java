@@ -1,5 +1,6 @@
 package com.vanging.www.user.persistence;
 
+import com.vanging.www.user.persistence.entity.Profile;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -47,5 +48,12 @@ public class ActionTest {
     public void isUsernameExist() throws Exception
     {
         Assert.assertFalse(Action.isUsernameExist(""));
+    }
+
+    @Test
+    public void getProfileFromUid()
+    {
+        Profile profile = Action.getProfileFromUid("uid");
+        Assert.assertNotNull(profile);
     }
 }

@@ -23,4 +23,7 @@
     <select id="getUidFromUsername" parameterType="String" resultType="java.lang.String">
         select `uid` from `profile` where `username` = #{username} and `deleted_at` is null;
     </select>
+    <select id="getProfileFromUid" parameterType="String" resultType="com.vanging.www.user.persistence.entity.Profile">
+        select * from `profile` where `uid` = #{uid};
+    </select>
 </mapper>

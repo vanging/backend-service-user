@@ -1,6 +1,7 @@
 package com.vanging.www.user.restful.servlet;
 
 import com.alibaba.fastjson.JSON;
+import com.vanging.www.user.restful.response.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +13,20 @@ public class Index extends HttpServlet
 {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        JSON.writeJSONString(response.getWriter(), "{}");
+        Response finalResponse = new Response();
+
+        String param = request.getParameter("param");
+        String param1 = request.getParameter("param1");
+
+        if(param == null || param1 == null)
+        {
+            finalResponse.setStatus("param_wrong");
+        }
+        else
+        {
+
+        }
+
+        JSON.writeJSONString(response.getWriter(), finalResponse);
     }
 }

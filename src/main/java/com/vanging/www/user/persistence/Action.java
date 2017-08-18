@@ -88,4 +88,14 @@ public class Action
             return "password_not_match";
         }
     }
+
+    public static Profile getProfileFromUid(String uid)
+    {
+        SqlSession sqlSession = Persistence.getSqlSession();
+        ProfileMapper profileMapper = sqlSession.getMapper(ProfileMapper.class);
+
+        Profile profile = profileMapper.getProfileFromUid(uid);
+        sqlSession.close();
+        return profile;
+    }
 }
