@@ -3,6 +3,7 @@ package com.vanging.www.user.restful.servlet;
 import com.alibaba.fastjson.JSON;
 import com.vanging.www.user.persistence.Action;
 import com.vanging.www.user.restful.response.Response;
+import com.vanging.www.user.util.Validator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ public class Register extends HttpServlet
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        if(email == null || password == null)
+        if(email == null || password == null || ! Validator.email(email))
         {
             finalResponse.setStatus("param_wrong");
         }
